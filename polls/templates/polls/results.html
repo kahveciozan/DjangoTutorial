@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anket Sonuçları2</title>
+</head>
+<body>
+
+    <h1>{{ question.question_text }}</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li> {{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+
+    <a href="{% url 'polls:detail' question.id %}">Tekrar Oy Kullanmak İçin Tıklayın</a>
+    </ul>
+</body>
+</html>
